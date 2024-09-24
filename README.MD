@@ -96,7 +96,7 @@ time = 5  // in this case i used 5, it mean 5 second
 alert = #YourSubscriptionText //just copy the subscription from index here
 ```
 
-Will be show notif like this
+Will be show notif like this<br>
 ![output notification](assets/image4.png)
 
 You can change the icon with your logo or design just change icon.png

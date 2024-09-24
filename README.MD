@@ -15,7 +15,7 @@
 
 Downlaod the [vendor.zip](https://) and extract, if you using hosting server just upload the zip and extract with script [php-unzipper](https://github.com/Agellls/php-unzipper)
 
-After that run script [VAPID.php]() in terminal like this :
+After that run script [VAPID.php](https://github.com/Agellls/notification-fcm-with-php/blob/master/VAPID.php) in terminal like this :
 
 ```php
 //make you already inside directory of this file
@@ -33,7 +33,7 @@ Make sure you save that public key and private key
 
 ## Configure your index key & send key
 
-You can edit [index.html]() like you want. not like my example. but you need change this line with you previus public key
+You can edit [index.html](https://github.com/Agellls/notification-fcm-with-php/blob/master/index.html) like you want. not like my example. but you need change this line with you previus public key
 
 ```js
 sw.pushManager.subscribe({
@@ -42,7 +42,7 @@ sw.pushManager.subscribe({
 });
 ```
 
-Now edit the file [send.php]() and report notification
+Now edit the file [send.php](https://github.com/Agellls/notification-fcm-with-php/blob/master/send.php) and report notification
 
 ```php
 $auth = [
@@ -71,20 +71,20 @@ The setup for notificaiton ready now, the next is how to call or show the notif 
 
 # Get subcription notification
 
-Now open your index.html it will show like this
+Now open your index.html it will show like this<br>
 ![index ui](assets/image.png)
 
-Then click enable notif it will need permision notif like this
+Then click enable notif it will need permision notif like this<br>
 ![notif ui](assets/image2.png)
 
-Just click allow or enable, the output index will be show like this
+Just click allow or enable, the output index will be show like this<br>
 ![output ui](assets/image3.png)
 
 Copy the text on bottom, we need that for send the notification to user
 
 # Show or send notification to user
 
-Just call the file [send.php]() like this :
+Just call the file [send.php](https://github.com/Agellls/notification-fcm-with-php/blob/master/send.php) like this :
 
 https://#YourDomainOrLocalhost/send.php?time=5&alert=#YourSubscriptionText
 

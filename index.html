@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Push Notif</title>
+</head>
+<body>
+    <h1>Javascript & PHP push notif demo</h1>
+    <script>
+        navigator.serviceWorker.register("sw.js");
+
+        function encodeJSONToURL(jsonObj) {
+            return encodeURIComponent(JSON.stringify(jsonObj));
+        }
+
+        function enableNotif() {
+            Notification.requestPermission().then((permission)=> {
+                if (permission === 'granted') {
+                    // get service worker
+                    navigator.serviceWorker.ready.then((sw)=> {
+                        // subscribe
+                        sw.pushManager.subscribe({
+                            userVisibleOnly: true,
+                            applicationServerKey: "#ChangeWithYourPublicKey",
+                        }).then((subscription)=> {
+                            const subscriptionDetails = document.createElement('p');
+                            subscriptionDetails.textContent = JSON.stringify(subscription);
+                            document.body.appendChild(subscriptionDetails);
+
+                            // Add the encoded version
+                            const encodedSubscription = document.createElement('p');
+                            encodedSubscription.textContent = encodeJSONToURL(subscription);
+                            document.body.appendChild(encodedSubscription);
+                        });
+                    });
+                }
+            });
+        }
+    </script>
+    <button onclick="enableNotif()">Enable Notif</button>
+</body>
+</html>
